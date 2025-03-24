@@ -8,7 +8,7 @@
 #include<cuda_runtime.h>
 #include <curand_kernel.h>
 
-#define TOLERANCE 1e-4
+#define TOLERANCE 1e-5
 
 #define CUDA_CHECK(ans)                        \
     {                                          \
