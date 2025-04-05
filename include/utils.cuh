@@ -5,6 +5,7 @@
 
 #include<stdio.h>
 #include<cuda.h>
+#include<cublas_v2.h>
 #include<cuda_runtime.h>
 #include <curand_kernel.h>
 
@@ -23,8 +24,16 @@ inline void cudaAssert(cudaError_t code, const char *file, int line) {
     }
 }
 
+#define CUBLAS_CHECK(err) \
+    if (err != CUBLAS_STATUS_SUCCESS) { \
+        std::cerr << "cuBLAS Error: " << err << std::endl; \
+        exit(EXIT_FAILURE); \
+    }
+
 // Device + Host random number function
 float random_normal_clamped(float min_val, float max_val);
 float *random_normal_clamped_array(int N, float min_val, float max_val);
+
+float *ones_arr(int N);
 
 #endif // UTILS_CUH

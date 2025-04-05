@@ -10,18 +10,18 @@ BUILD_DIR = build
 
 # Source files
 KERNEL_SOURCES = $(wildcard $(KERNELS_DIR)/*.cu)
-ROOT_SOURCE = run_vector_scalar_add.cu
+ROOT_SOURCE = run_vector_vector_add.cu
 UTILS_SOURCE = ../utils.cu
 
 # Object files
 KERNEL_OBJECTS = $(patsubst $(KERNELS_DIR)/%.cu,$(BUILD_DIR)/%.obj,$(KERNEL_SOURCES))
-ROOT_OBJECT = $(BUILD_DIR)/run_vector_scalar_add.obj
+ROOT_OBJECT = $(BUILD_DIR)/run_vector_vector_add.obj
 UTILS_OBJECT = $(BUILD_DIR)/utils.obj
 
 OBJECTS = $(KERNEL_OBJECTS) $(ROOT_OBJECT) $(UTILS_OBJECT)
 
 # Output binary
-TARGET = vector_scalar_add
+TARGET = vector_vector_add
 
 # Default rule
 all: $(TARGET)
@@ -30,8 +30,8 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	$(NVCC) $(CFLAGS) -o $@ $^
 
-# Rule to compile run_vector_scalar_add.cu
-$(BUILD_DIR)/run_vector_scalar_add.obj: $(SRC_DIR)/run_vector_scalar_add.cu | $(BUILD_DIR)
+# Rule to compile run_vector_vector_add.cu
+$(BUILD_DIR)/run_vector_vector_add.obj: $(SRC_DIR)/run_vector_vector_add.cu | $(BUILD_DIR)
 	$(NVCC) $(CFLAGS) $(INCLUDE_DIRS) -c $< -o $@
 
 # Rule to compile utils.cu

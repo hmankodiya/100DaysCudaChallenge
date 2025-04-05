@@ -19,3 +19,12 @@ float *random_normal_clamped_array(int N, float min_val, float max_val) {
 
     return arr;
 }
+
+float *ones_arr(int N) {
+    float *arr;
+    arr = (float *)malloc(N * sizeof(N));
+    for (size_t i = 0;i < N;i++)
+        arr[i] = 1.0f;
+
+    return arr;
+}
