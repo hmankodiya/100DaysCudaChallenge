@@ -28,3 +28,23 @@ float *ones_arr(int N) {
 
     return arr;
 }
+
+float *arange(int low, int high, int N) {
+    float *arr = (float *)malloc(N * sizeof(N));
+    for (size_t i = 0;i < N;i++)
+        arr[i] = low + i * (high - low) / (float)N;
+
+    return arr;
+}
+
+float *arange(int high, int N) {
+    return arange(0, high, N);
+}
+
+
+void display(float *arr, int N) {
+    for (size_t i = 0;i < N;i++) {
+        printf("%.2f ", arr[i]);
+    }
+    printf("\n");
+}

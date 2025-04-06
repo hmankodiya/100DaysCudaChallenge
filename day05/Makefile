@@ -3,25 +3,25 @@ NVCC = nvcc
 CFLAGS = -std=c++17 -lcublas -allow-unsupported-compiler
 
 # Directories
-INCLUDE_DIRS = -Iinclude -I../include
+INCLUDE_DIRS = -I./include -I../include
 SRC_DIR = .
 KERNEL_DIR = kernels
 BUILD_DIR = build
 
 # Sources
-KERNEL_SRC = $(KERNEL_DIR)/cublas_vector_scalar_add.cu
+KERNEL_SRC = $(KERNEL_DIR)/blockwise_sum.cu
 UTILS_SRC = ../utils.cu
-RUNNER_SRC = run_cublas_vector_scalar_add.cu  # optional test file (if you create it)
+RUNNER_SRC = run_blockwise_sum.cu  # optional test file (if you create it)
 
 # Object files
-KERNEL_OBJ = $(BUILD_DIR)/cublas_vector_scalar_add.obj
+KERNEL_OBJ = $(BUILD_DIR)/blockwise_sum.obj
 UTILS_OBJ = $(BUILD_DIR)/utils.obj
-RUNNER_OBJ = $(BUILD_DIR)/run_cublas_vector_scalar_add.obj
+RUNNER_OBJ = $(BUILD_DIR)/run_blockwise_sum.obj
 
 OBJECTS = $(KERNEL_OBJ) $(UTILS_OBJ) $(RUNNER_OBJ)
 
 # Output binary
-TARGET = run_cublas_vector_scalar_add
+TARGET = run_blockwise_sum
 
 # Default rule
 all: $(TARGET)

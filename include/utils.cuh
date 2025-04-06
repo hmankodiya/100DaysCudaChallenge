@@ -35,5 +35,9 @@ float random_normal_clamped(float min_val, float max_val);
 float *random_normal_clamped_array(int N, float min_val, float max_val);
 
 float *ones_arr(int N);
+float *arange(int low, int high, int N);
+float *arange(int high, int N);
+
+void display(float *arr, int N);
 
 #endif // UTILS_CUH
