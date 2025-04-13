@@ -32,12 +32,25 @@ inline void cudaAssert(cudaError_t code, const char *file, int line) {
 
 // Device + Host random number function
 float random_normal_clamped(float min_val, float max_val);
-float *random_normal_clamped_array(int N, float min_val, float max_val);
+float *random_normal_clamped_array(size_t N, float min_val, float max_val);
 
-float *ones_arr(int N);
-float *arange(int low, int high, int N);
-float *arange(int high, int N);
+// ===== FLOAT =====
+float *ones_arr_float(size_t N);
+float *arange_float(size_t low, size_t high, size_t N);
+float *arange_float(size_t high, size_t N);
+void display_float(float *arr, size_t N);
 
-void display(float *arr, int N);
+// ===== DOUBLE =====
+double *ones_arr_double(size_t N);
+double *arange_double(double low, double high, size_t N);
+double *arange_double(double high, size_t N);
+void display_double(double *arr, size_t N);
 
-#endif // UTILS_CUH
+// ===== SIZE_T =====
+size_t *ones_arr_size_t(size_t N);
+size_t *arange_size_t(size_t low, size_t high, size_t N);
+size_t *arange_size_t(size_t high, size_t N);
+void display_size_t(size_t *arr, size_t N);
+
+
+#endif
